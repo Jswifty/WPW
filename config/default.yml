@@ -1,0 +1,11 @@
+---
+port: 3000
+
+connection:
+  host: "localhost"
+  user: "charles"
+  password: "12345678"
+  database:
+    inventory: "wpw_inventory"
+    accounts_receivable: "wpw_accounts_receivable"
+    user: "wpw_user"

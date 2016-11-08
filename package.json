@@ -1,0 +1,24 @@
+{
+  "name": "wpw-api",
+  "version": "0.0.0",
+  "description": "Wong Po Wah Sewing Machine Ltd Database API",
+  "private": "true",
+  "main": "main.js",
+  "scripts": {
+    "build-db": "node build_db",
+    "create-user": "node create_user",
+    "watch": "nodemon main -e js",
+    "start": "node main"
+  },
+  "author": "John Wong",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.13.4",
+    "body-parser": "^1.15.2",
+    "nodemon": "^1.9.1",
+    "morgan": "^1.7.0",
+    "config": "^1.20.4",
+    "js-yaml": "^3.6.1",
+    "mysql": "^2.5.4"
+  }
+}
