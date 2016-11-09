@@ -4,12 +4,12 @@ var path = require("path");
 var connector = require("./../connector");
 
 var database = config.connection.database.inventory;
-var createBrandTableSQL = getStringFromFile("./craete_brand_table.sql");
+var createBrandTableSQL = getStringFromFile("./create_brand_table.sql");
 
 module.exports = function (callback, failure) {
   callback = callback || function () {};
   failure = failure || function () {};
-  
+
   connector.connect()
     .then(function (connection) {
       console.log("Creating inventory database...");

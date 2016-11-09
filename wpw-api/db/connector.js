@@ -1,4 +1,5 @@
 var config = require("config");
+var Promise = require("bluebird");
 var mysql = require("mysql");
 
 var pool = mysql.createPool({

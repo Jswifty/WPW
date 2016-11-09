@@ -6,6 +6,6 @@ connection:
   user: "charles"
   password: "12345678"
   database:
+    user: "wpw_user"
     inventory: "wpw_inventory"
     accounts_receivable: "wpw_accounts_receivable"
-    user: "wpw_user"
