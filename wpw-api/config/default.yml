@@ -1,6 +1,8 @@
 ---
 port: 3000
 
+token_private_key: "7b520902-85d7-424f-a672-132295ad9ec6"
+
 connection:
   host: "localhost"
   user: "charles"

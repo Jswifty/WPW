@@ -20,7 +20,7 @@ module.exports = function () {
       connector.disconnect();
 
       pool.getConnection(function (error, connection) {
-        if (error && error.message) {
+        if (error !== null && error !== undefined && error.message !== undefined) {
           reject("Connection failed - " + error.message);
           return;
         }
@@ -44,7 +44,7 @@ module.exports = function () {
     return new Promise(function (fulfill, reject) {
       if (connector.connection !== null && connector.database !== null) {
         connector.connection.query(query, function (error, results) {
-          if (error && error.message) {
+          if (error !== null && error !== undefined && error.message !== undefined) {
             reject("Query Failed - " + error.message);
           } else {
             fulfill(results);
@@ -59,7 +59,7 @@ module.exports = function () {
   connector.useDatabase = function (database) {
     return new Promise(function (fulfill, reject) {
       connector.connection.query("USE " + database, function (error, results) {
-        if (error && error.message) {
+        if (error !== null && error !== undefined && error.message !== undefined) {
           reject("Select database Failed - " + error.message);
         } else {
           connector.database = database;
@@ -72,7 +72,7 @@ module.exports = function () {
   connector.createDatabase = function (database) {
     return new Promise(function (fulfill, reject) {
       connector.connection.query("CREATE DATABASE IF NOT EXISTS " + database, function (error, results) {
-        if (error && error.message) {
+        if (error !== null && error !== undefined && error.message !== undefined) {
           reject("Create database Failed - " + error.message);
         } else {
           fulfill(results);
