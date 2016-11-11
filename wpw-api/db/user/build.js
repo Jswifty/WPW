@@ -3,8 +3,8 @@ var fs = require("fs");
 var path = require("path");
 var connector = require("./../connector");
 
-var database = config.connection.database.user;
-var createUserTableSQL = getStringFromFile("./create_user_table.sql");
+var database = config.database.user;
+var buildSQL = getStringFromFile("./build.sql");
 
 module.exports = function (callback, failure) {
   callback = callback || function () {};
@@ -17,8 +17,8 @@ module.exports = function (callback, failure) {
     }).then(function (results) {
       return connector.useDatabase(database);
     }).then(function (results) {
-      console.log("Creating user table...");
-      return connector.query(createUserTableSQL);
+      console.log("Creating tables for user database...");
+      return connector.query(buildSQL);
     }).then(function (results) {
       console.log("User database created");
       callback(results);

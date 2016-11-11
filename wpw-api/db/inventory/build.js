@@ -3,7 +3,7 @@ var fs = require("fs");
 var path = require("path");
 var connector = require("./../connector");
 
-var database = config.connection.database.inventory;
+var database = config.database.inventory;
 var createBrandTableSQL = getStringFromFile("./create_brand_table.sql");
 
 module.exports = function (callback, failure) {

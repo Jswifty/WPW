@@ -1,9 +1,8 @@
 var config = require("config");
 var Promise = require("bluebird");
-var connector = require("./../connector");
 var runQuery = require("./../run_query");
 
-var database = config.connection.database.wpw_accounts_receivable;
+var database = config.database.accounts_receivable;
 
 module.exports = function () {
   var ARService = this;

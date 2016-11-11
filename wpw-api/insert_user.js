@@ -3,7 +3,7 @@ var arguments = process.argv;
 if (arguments !== null && arguments.length >= 4) {
   var username = arguments[2];
   var password = arguments[3];
-  var UserService = require("./service");
+  var UserService = require("./db/user/service");
 
   UserService.createUser({ username: username, password: password})
     .then(function (results) {

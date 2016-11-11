@@ -3,13 +3,13 @@ var fs = require("fs");
 var path = require("path");
 var connector = require("./../connector");
 
-var database = config.connection.database.accounts_receivable;
-var createDebtorTableSQL = getStringFromFile("./create_debtor_table.sql");
+var database = config.database.accounts_receivable;
+var buildSQL = getStringFromFile("./create_debtor_table.sql");
 
 module.exports = function (callback, failure) {
   callback = callback || function () {};
   failure = failure || function () {};
-  
+
   connector.connect()
     .then(function (connection) {
       console.log("Creating accounts receivable database...");

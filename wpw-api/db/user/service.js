@@ -1,9 +1,8 @@
 var config = require("config");
 var Promise = require("bluebird");
-var connector = require("./../connector");
 var runQuery = require("./../run_query");
 
-var database = config.connection.database.user;
+var database = config.database.user;
 
 module.exports = function () {
   var UserService = this;
@@ -47,6 +46,7 @@ module.exports = function () {
   UserService.createUser = function (user) {
     return new Promise(function (fulfill, reject) {
       if (user !== null && user.username !== null && user.password !== null) {
+        user.privilege = user.privilege || "00000000000000000000";
         return UserService.findUser(user.username)
           .then(function (existingUser) {
             if (existingUser !== null) {

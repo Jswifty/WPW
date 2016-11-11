@@ -6,9 +6,10 @@
   "main": "main.js",
   "scripts": {
     "build-db": "node build_db",
-    "create-user": "node db/user/insert_user_cli",
-    "list-users": "node db/user/list_users_cli",
-    "watch": "nodemon main -e js",
+    "create-user": "node insert_user",
+    "list-users": "node list_users",
+    "run-query": "node command_query",
+    "watch": "nodemon main -e js,yml,sql",
     "start": "node main"
   },
   "author": "John Wong",

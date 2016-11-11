@@ -1,4 +1,4 @@
-var UserService = require("./service");
+var UserService = require("./db/user/service");
 
 UserService.listUsers()
   .then(function (results) {
