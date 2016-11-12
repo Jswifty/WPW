@@ -54,14 +54,22 @@ module.exports = function (express, app) {
   // authenticated routes
   // ---------------------------------------------------------
   routes.get("/", function (request, response) {
-    var database = request && request.query && request.query.database;
+    response.json({ message: "This is WPW Database API." });
+  });
+
+  routes.get(/\/\w+/, function (request, response) {
+    var database = request && request._parsedUrl && request._parsedUrl.pathname.replace(/\//g, "");
     var query = request && request.query && request.query.query;
 
-    runQuery(query, database, function (results) {
-      response.json(results);
-    }, function (error) {
-      response.json({ message: error });
-    });
+    if (query !== undefined) {
+      runQuery(query, database, function (results) {
+        response.json(results);
+      }, function (error) {
+        response.json({ message: error });
+      });
+    } else {
+      response.json({ message: "Please provide a database query in the query parameter." });
+    }
   });
 
   routes.get("/users", function(request, response) {

@@ -3,8 +3,8 @@ var fs = require("fs");
 var path = require("path");
 var connector = require("./../connector");
 
-var database = config.database.inventory;
-var createBrandTableSQL = getStringFromFile("./create_brand_table.sql");
+var database = config.database.user;
+var createUserSQL = getStringFromFile("./create_user.sql");
 
 module.exports = function (callback, failure) {
   callback = callback || function () {};
@@ -12,15 +12,15 @@ module.exports = function (callback, failure) {
 
   connector.connect()
     .then(function (connection) {
-      console.log("Creating inventory database...");
+      console.log("Creating user database...");
       return connector.createDatabase(database);
     }).then(function (results) {
       return connector.useDatabase(database);
     }).then(function (results) {
-      console.log("Creating brand table...");
-      return connector.query(createBrandTableSQL);
+      console.log("Creating tables for user database...");
+      return connector.query(createUserSQL);
     }).then(function (results) {
-      console.log("Inventory database created");
+      console.log("User database created");
       callback(results);
     }).catch(function (error) {
       console.log(error);

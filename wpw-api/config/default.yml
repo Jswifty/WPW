@@ -12,3 +12,8 @@ database:
   user: "wpw_user"
   inventory: "wpw_inventory"
   accounts_receivable: "wpw_accounts_receivable"
+
+# connection:
+#   host: "192.168.0.34"
+#   user: "wpw"
+#   password: "wpw"

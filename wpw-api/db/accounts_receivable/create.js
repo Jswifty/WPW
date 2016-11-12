@@ -3,8 +3,9 @@ var fs = require("fs");
 var path = require("path");
 var connector = require("./../connector");
 
-var database = config.database.user;
-var buildSQL = getStringFromFile("./build.sql");
+var database = config.database.accounts_receivable;
+var createDebtorSQL = getStringFromFile("./create_debtor.sql");
+var createInvoiceSQL = getStringFromFile("./create_invoice.sql");
 
 module.exports = function (callback, failure) {
   callback = callback || function () {};
@@ -12,15 +13,18 @@ module.exports = function (callback, failure) {
 
   connector.connect()
     .then(function (connection) {
-      console.log("Creating user database...");
+      console.log("Creating accounts receivable database...");
       return connector.createDatabase(database);
     }).then(function (results) {
       return connector.useDatabase(database);
     }).then(function (results) {
-      console.log("Creating tables for user database...");
-      return connector.query(buildSQL);
+      console.log("Creating debtor table...");
+      return connector.query(createDebtorSQL);
     }).then(function (results) {
-      console.log("User database created");
+      console.log("Creating invoice table...");
+      return connector.query(createInvoiceSQL);
+    }).then(function (results) {
+      console.log("Accounts receivable database created");
       callback(results);
     }).catch(function (error) {
       console.log(error);

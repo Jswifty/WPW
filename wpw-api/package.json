@@ -5,7 +5,8 @@
   "private": "true",
   "main": "main.js",
   "scripts": {
-    "build-db": "node build_db",
+    "build": "node create_db",
+    "import-table": "node import_table",
     "create-user": "node insert_user",
     "list-users": "node list_users",
     "run-query": "node command_query",
@@ -23,6 +24,7 @@
     "jsonwebtoken": "^5.7.0",
     "js-yaml": "^3.6.1",
     "bluebird": "^3.3.4",
-    "mysql": "^2.5.4"
+    "mysql": "^2.5.4",
+    "csv": "^1.1.0"
   }
 }

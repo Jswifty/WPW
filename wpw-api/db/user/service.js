@@ -46,15 +46,14 @@ module.exports = function () {
   UserService.createUser = function (user) {
     return new Promise(function (fulfill, reject) {
       if (user !== null && user.username !== null && user.password !== null) {
-        user.privilege = user.privilege || "00000000000000000000";
         return UserService.findUser(user.username)
           .then(function (existingUser) {
             if (existingUser !== null) {
               reject("Error: username already exists.");
             } else {
               var insertQuery = [
-                "INSERT INTO user (username, password, privilege )",
-                " VALUES (\"" + user.username + "\", \"" + user.password + "\", \"" + user.privilege + "\");"
+                "INSERT INTO user (username, password)",
+                " VALUES (\"" + user.username + "\", \"" + user.password + "\");"
               ].join("");
 
               runQuery(insertQuery, database, fulfill, reject);
