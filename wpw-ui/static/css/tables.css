@@ -1,0 +1,86 @@
+.side-bar {
+  display: inline-block;
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  width: 200px;
+  background-color: #F0F0F0;
+  box-shadow: 1px 1px 2px 0px #A0A0A0;
+  overflow: auto;
+  z-index: 1;
+}
+
+.side-bar .databaseName {
+  padding: 10px;
+  font-size: 21px;
+  text-align: center;
+}
+
+.side-bar .views {
+
+}
+
+.side-bar ul.views li {
+  padding: 10px;
+}
+
+.side-bar ul.views li a {
+  text-decoration: none;
+  color: #000000;
+}
+
+.content-pane {
+  display: inline-block;
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 200px;
+  right: 0px;
+  overflow: auto;
+}
+
+.content-pane .tab-pane {
+  display: inline-block;
+  position: absolute;
+  width: 100%;
+  height: 50px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  background-color: #818181;
+}
+
+.content-pane .tab-pane .tab {
+  display: inline-block;
+  padding: 0px 15px;
+  margin-top: 10px;
+  margin-left: 5px;
+  background-color: #C0C0C0;
+  box-shadow: 1px 1px 5px 0px #505050;
+  line-height: 40px;
+  text-decoration: none;
+  color: #000000;
+}
+
+.content-pane .tab-pane .tab:focus {
+  background-color: #E0E0E0;
+}
+
+.content-pane .tab-pane .tab:active, .content-pane .tab-pane .tab.selected {
+  background-color: #FFFFFF;
+  box-shadow: 1px 1px 5px 0px #505050;
+}
+
+.content-pane .tab-content {
+  display: inline-block;
+  position: absolute;
+  top: 50px;
+  bottom: 0px;
+  width: 100%;
+  overflow: auto;
+  background-color: #C0C0C0;
+}
+
+.content-pane .tab-content.opened {
+  background-color: #FFFFFF;
+}

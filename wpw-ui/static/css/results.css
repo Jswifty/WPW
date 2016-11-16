@@ -1,0 +1,12 @@
+.result-pane {
+  display: inline-block;
+  position: absolute;
+  top: 15px;
+  bottom: 15px;
+  left: 15px;
+  right: 15px;
+}
+
+.result-pane .result-table {
+
+}

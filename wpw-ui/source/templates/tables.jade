@@ -1,0 +1,27 @@
+extend default
+
+block content
+  link(rel='stylesheet', href='/css/tables.css')
+  .side-bar
+    .databaseName= databaseName
+    ul.views
+      - for (var i = 0; i < views.length; i++) {
+        li
+          a(href="?columns=#{views[i].columns}&sort=#{views[i].sort_by}") #{views[i].name}
+      - }
+  .content-pane
+    .tab-pane
+      - for (var i = 0; i < tables.length; i++) {
+      - if (table === tables[i]) {
+        a.tab.selected(href="/#{database}/#{tables[i]}") #{tableNames[i]}
+      - } else {
+        a.tab(href="/#{database}/#{tables[i]}") #{tableNames[i]}
+      - }
+      - }
+    - if (results !== undefined) {
+    .tab-content.opened
+      block results-content
+    - } else {
+    .tab-content
+      block results-content
+    - }

@@ -1,0 +1,12 @@
+---
+port: 8080
+
+api:
+  host: "127.0.0.1"
+  port: 3000
+
+database:
+  user: "wpw_user"
+  ar: "wpw_accounts_receivable"
+  ap: "wpw_accounts_payable"
+  inventory: "wpw_inventory"

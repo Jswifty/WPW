@@ -1,0 +1,23 @@
+{
+  "name": "wpw",
+  "version": "1.0.0",
+  "description": "Wong Po Wah Sewing Machine Ltd",
+  "private": "true",
+  "main": "main.js",
+  "scripts": {
+    "watch": "nodemon main -e js,jade,css,yml",
+    "start": "node main"
+  },
+  "author": "John Wong",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.13.4",
+    "jade": "^1.11.0",
+    "nodemon": "^1.9.1",
+    "morgan": "^1.7.0",
+    "config": "^1.20.4",
+    "js-yaml": "^3.6.1",
+    "axios": "^0.15.2",
+    "serve-favicon": "^2.3.0"
+  }
+}

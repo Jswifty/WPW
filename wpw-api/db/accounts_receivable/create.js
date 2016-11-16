@@ -6,6 +6,7 @@ var connector = require("./../connector");
 var database = config.database.accounts_receivable;
 var createDebtorSQL = getStringFromFile("./create_debtor.sql");
 var createInvoiceSQL = getStringFromFile("./create_invoice.sql");
+var createViewSQL = getStringFromFile("./create_view.sql");
 
 module.exports = function (callback, failure) {
   callback = callback || function () {};
@@ -24,7 +25,10 @@ module.exports = function (callback, failure) {
       console.log("Creating invoice table...");
       return connector.query(createInvoiceSQL);
     }).then(function (results) {
-      console.log("Accounts receivable database created");
+      console.log("Creating view table...");
+      return connector.query(createViewSQL);
+    }).then(function (results) {
+      console.log("Accounts receivable database created.");
       callback(results);
     }).catch(function (error) {
       console.log(error);

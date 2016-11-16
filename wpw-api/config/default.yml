@@ -4,7 +4,7 @@ port: 3000
 token_private_key: "7b520902-85d7-424f-a672-132295ad9ec6"
 
 connection:
-  host: "localhost"
+  host: "127.0.0.1"
   user: "charles"
   password: "12345678"
 
@@ -12,6 +12,14 @@ database:
   user: "wpw_user"
   inventory: "wpw_inventory"
   accounts_receivable: "wpw_accounts_receivable"
+
+look_up_names:
+  wpw_user: "User"
+  wpw_inventory: "Inventory"
+  wpw_accounts_receivable: "AR"
+  debtor: "Debtor"
+  invoice: "Invoice"
+  
 
 # connection:
 #   host: "192.168.0.34"

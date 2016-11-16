@@ -1,0 +1,44 @@
+@import url("https://fonts.googleapis.com/css?family=Source+Code+Pro:400,200,700");
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+body {
+  font-family: 'Source Code Pro', monospace;
+}
+
+header {
+  position: absolute;
+  width: 100%;
+  top: 0px;
+  background-color: #FFFFFF;
+  height: 60px;
+  box-shadow: 0px -25px 15px 20px #000000;
+  z-index: 2;
+}
+
+header h1.title {
+  font-weight: 200;
+  font-size: 40px;
+  text-align: center;
+  text-transform: uppercase;
+  margin: 5px;
+}
+
+header h2.page-title {
+  font-weight: 200;
+  font-size: 28px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+div.main-content {
+  display: inline-block;
+  position: absolute;
+  overflow: auto;
+  top: 60px;
+  bottom: 0px;
+  right: 0px;
+  left: 0px;
+}

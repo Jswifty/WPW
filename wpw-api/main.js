@@ -5,7 +5,6 @@ var path = require("path");
 var config = require("config");
 var jsonWebToken = require("jsonwebtoken");
 var bodyParser = require("body-parser");
-var UserService = require("./db/user/service");
 
 var app = express();
 var routes = require("./app/routes")(express, app);

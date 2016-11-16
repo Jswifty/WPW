@@ -1,0 +1,7 @@
+extend default
+
+block content
+  link(rel='stylesheet', href='/css/databases.css')
+  - for (var i = 0; i < databases.length; i++) {
+  a.database(href="/#{databases[i]}") #{databaseNames[i]}
+  - }

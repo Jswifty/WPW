@@ -8,35 +8,24 @@ module.exports = function () {
   var UserService = this;
 
   UserService.listUsers = function () {
-    return new Promise(function (fulfill, reject) {
-      var listQuery = "SELECT username, privilege FROM user;";
-      var getResults = function (results) {
+    return runQuery("SELECT username, privilege FROM user;", database)
+      .then(function (results) {
         var userList = [];
 
         for (var i = 0; i < results.length; i++) {
           userList.push({ username: results[i].username, privilege: results[i].privilege });
         }
 
-        fulfill(userList);
-      };
-
-      runQuery(listQuery, database, getResults, reject);
-    });
+        return userList;
+      });
   };
 
   UserService.findUser = function (username) {
     return new Promise(function (fulfill, reject) {
       if (username !== null) {
-        var findQuery = "SELECT * FROM user WHERE username=\"" + username + "\";";
-        var getResults = function (results) {
-          if (results.length > 0) {
-            fulfill(results[0]);
-          } else {
-            fulfill(null);
-          }
-        };
-
-        runQuery(findQuery, database, getResults, reject);
+        return runQuery("SELECT * FROM user WHERE username=\"" + username + "\";", database)
+          .then((results) => results.length > 0 ? results[0] : null)
+          .then(fulfill);
       } else {
         reject("Error: username not found.");
       }
@@ -56,7 +45,7 @@ module.exports = function () {
                 " VALUES (\"" + user.username + "\", \"" + user.password + "\");"
               ].join("");
 
-              runQuery(insertQuery, database, fulfill, reject);
+              return runQuery(insertQuery, database);
             }
           }).catch(function (error) {
             reject(error);

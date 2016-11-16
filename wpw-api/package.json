@@ -6,6 +6,7 @@
   "main": "main.js",
   "scripts": {
     "build": "node create_db",
+    "clean": "node clean_db",
     "import-table": "node import_table",
     "create-user": "node insert_user",
     "list-users": "node list_users",

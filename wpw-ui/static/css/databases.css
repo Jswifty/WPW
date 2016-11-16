@@ -1,0 +1,20 @@
+.database {
+  display: inline-block;
+  margin: 20px;
+  width: 100px;
+  height: 100px;
+  box-shadow: 2px 2px 5px 2px #A0A0A0;
+  text-align: center;
+  line-height: 100px;
+  font-size: 18px;
+  text-decoration: none;
+  color: #000000;
+}
+
+.database:focus {
+  box-shadow: 1px 1px 5px 0px #A0A0A0;
+}
+
+.database:active {
+  box-shadow: 1px 1px 2px 0px #A0A0A0;
+}

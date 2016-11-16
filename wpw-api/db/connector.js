@@ -42,7 +42,7 @@ module.exports = function () {
 
   connector.query = function (query) {
     return new Promise(function (fulfill, reject) {
-      if (connector.connection !== null && connector.database !== null) {
+      if (connector.connection !== null) {
         connector.connection.query(query, function (error, results) {
           if (error !== null && error !== undefined && error.message !== undefined) {
             reject("Query Failed - " + error.message);
@@ -51,7 +51,7 @@ module.exports = function () {
           }
         });
       } else {
-        reject("Query Failed - connection not established or database not selected.");
+        reject("Query Failed - connection not established.");
       }
     });
   };
